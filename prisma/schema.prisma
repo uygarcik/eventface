@@ -1,0 +1,47 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Admin {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  events    Event[]
+}
+
+model Event {
+  id        String   @id @default(uuid())
+  name      String
+  date      DateTime
+  location  String?
+  qrToken   String   @unique @default(uuid())
+  adminId   String
+  admin     Admin    @relation(fields: [adminId], references: [id])
+  photos    Photo[]
+  createdAt DateTime @default(now())
+}
+
+model Photo {
+  id        String      @id @default(uuid())
+  eventId   String
+  event     Event       @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  s3Key     String
+  filename  String
+  faceIds   FaceIndex[]
+  createdAt DateTime    @default(now())
+}
+
+model FaceIndex {
+  id          String @id @default(uuid())
+  rekFaceId   String @unique
+  photoId     String
+  photo       Photo  @relation(fields: [photoId], references: [id], onDelete: Cascade)
+  eventId     String
+  boundingBox Json?
+}

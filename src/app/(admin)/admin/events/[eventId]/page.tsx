@@ -1,0 +1,122 @@
+"use client";
+import { useEffect, useState, useCallback, use } from "react";
+import { useRouter } from "next/navigation";
+import {
+  ArrowLeft, Upload, Cpu, QrCode, Image as ImageIcon,
+  CheckCircle2, Clock, AlertCircle, Loader2, Download
+} from "lucide-react";
+import Link from "next/link";
+import PhotoUploader from "@/components/admin/PhotoUploader";
+import QRDisplay from "@/components/admin/QRDisplay";
+import IndexingPanel from "@/components/admin/IndexingPanel";
+
+interface Event {
+  id: string;
+  name: string;
+  date: string;
+  location: string | null;
+  qrToken: string;
+  _count: { photos: number };
+}
+
+type Tab = "upload" | "index" | "qr";
+
+export default function EventDetailPage({ params }: { params: Promise<{ eventId: string }> }) {
+  const { eventId } = use(params);
+  const router = useRouter();
+  const [event, setEvent] = useState<Event | null>(null);
+  const [tab, setTab] = useState<Tab>("upload");
+  const [loading, setLoading] = useState(true);
+
+  const fetchEvent = useCallback(async () => {
+    const res = await fetch("/api/events");
+    if (!res.ok) { router.push("/admin/dashboard"); return; }
+    const events: Event[] = await res.json();
+    const found = events.find((e) => e.id === eventId);
+    if (!found) { router.push("/admin/dashboard"); return; }
+    setEvent(found);
+    setLoading(false);
+  }, [eventId, router]);
+
+  useEffect(() => { fetchEvent(); }, [fetchEvent]);
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <Loader2 size={32} className="animate-spin text-indigo-600" />
+      </div>
+    );
+  }
+
+  if (!event) return null;
+
+  const tabs: { id: Tab; label: string; icon: React.ElementType }[] = [
+    { id: "upload", label: "Fotoğraf Yükle", icon: Upload },
+    { id: "index", label: "Yüz İndeksleme", icon: Cpu },
+    { id: "qr", label: "QR Kod", icon: QrCode },
+  ];
+
+  return (
+    <div className="p-6 lg:p-8 max-w-5xl mx-auto">
+      {/* Back + Header */}
+      <div className="mb-6">
+        <Link
+          href="/admin/dashboard"
+          className="inline-flex items-center gap-2 text-slate-500 hover:text-slate-800 text-sm mb-4 transition-colors"
+        >
+          <ArrowLeft size={16} />
+          Tüm Etkinlikler
+        </Link>
+
+        <div className="flex items-start justify-between">
+          <div>
+            <h1 className="text-2xl font-bold text-slate-900">{event.name}</h1>
+            <div className="flex items-center gap-3 mt-1">
+              <span className="text-slate-500 text-sm">
+                {new Date(event.date).toLocaleDateString("tr-TR", {
+                  day: "numeric", month: "long", year: "numeric"
+                })}
+              </span>
+              {event.location && (
+                <span className="text-slate-500 text-sm">• {event.location}</span>
+              )}
+            </div>
+          </div>
+          <div className="flex items-center gap-2 bg-indigo-50 text-indigo-700 px-3 py-1.5 rounded-lg text-sm font-medium">
+            <ImageIcon size={15} />
+            {event._count.photos.toLocaleString()} fotoğraf
+          </div>
+        </div>
+      </div>
+
+      {/* Tabs */}
+      <div className="flex gap-1 bg-slate-100 p-1 rounded-xl mb-6">
+        {tabs.map(({ id, label, icon: Icon }) => (
+          <button
+            key={id}
+            onClick={() => setTab(id)}
+            className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg text-sm font-medium transition-all ${
+              tab === id
+                ? "bg-white text-slate-900 shadow-sm"
+                : "text-slate-500 hover:text-slate-700"
+            }`}
+          >
+            <Icon size={16} />
+            <span className="hidden sm:inline">{label}</span>
+          </button>
+        ))}
+      </div>
+
+      {/* Tab Content */}
+      {tab === "upload" && (
+        <PhotoUploader eventId={eventId} onUploaded={fetchEvent} />
+      )}
+      {tab === "index" && (
+        <IndexingPanel eventId={eventId} photoCount={event._count.photos} />
+      )}
+      {tab === "qr" && (
+        <QRDisplay event={event} />
+      )}
+    </div>
+  );
+}
