@@ -51,7 +51,7 @@ export default function LoginPage() {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-indigo-600 rounded-2xl mb-4 shadow-lg shadow-indigo-500/30">
             <Camera size={28} className="text-white" />
           </div>
-          <h1 className="text-3xl font-bold text-white">EventFace</h1>
+          <h1 className="text-3xl font-bold text-white">Phogo</h1>
           <p className="text-slate-400 mt-1 text-sm">Yönetim Paneline Giriş</p>
         </div>
 
@@ -67,7 +67,7 @@ export default function LoginPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && doLogin()}
                 autoComplete="email"
-                placeholder="admin@eventface.com"
+                placeholder="admin@phogo.com"
                 className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
               />
             </div>

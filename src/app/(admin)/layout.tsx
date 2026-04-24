@@ -41,7 +41,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             <Camera size={18} className="text-white" />
           </div>
           <div>
-            <div className="text-white font-bold text-base leading-tight">EventFace</div>
+            <div className="text-white font-bold text-base leading-tight">Phogo</div>
             <div className="text-slate-400 text-xs">Yönetim Paneli</div>
           </div>
         </div>
@@ -105,7 +105,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           </button>
           <div className="flex items-center gap-2">
             <Camera size={18} className="text-indigo-600" />
-            <span className="font-bold text-slate-800">EventFace</span>
+            <span className="font-bold text-slate-800">Phogo</span>
           </div>
         </header>
 

@@ -5,7 +5,7 @@ import "./globals.css";
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
 
 export const metadata: Metadata = {
-  title: "EventFace — Etkinlik Fotoğraf Sistemi",
+  title: "Phogo — Etkinlik Fotoğraf Sistemi",
   description: "Etkinlik fotoğraflarınızı yüz tanıma ile anında bulun",
 };
 
