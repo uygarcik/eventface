@@ -1,32 +1,29 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
-import { Camera, Zap, Shield, Download, QrCode, Users, Star, ArrowRight, Check } from "lucide-react";
-
-export const metadata = {
-  title: "Phogo — Etkinlik Fotoğraflarını Anında Bul",
-  description: "Yüz tanıma teknolojisiyle etkinlik fotoğraflarını saniyeler içinde bul ve indir. QR kodu tara, selfie çek, fotoğrafların hazır.",
-};
+import { useState } from "react";
+import { Zap, Shield, Download, QrCode, Users, Clock, ArrowRight, Check, Camera, Star, Heart, ChevronDown, Loader2 } from "lucide-react";
 
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-white">
 
       {/* Nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center">
-            <Image src="/logo.png" alt="Phogo" width={120} height={40} className="h-8 w-auto object-contain" priority />
-          </div>
-          <div className="hidden md:flex items-center gap-8 text-sm text-slate-600">
-            <a href="#nasil-calisir" className="hover:text-slate-900 transition-colors">Nasıl Çalışır?</a>
-            <a href="#ozellikler" className="hover:text-slate-900 transition-colors">Özellikler</a>
-            <a href="#fiyatlandirma" className="hover:text-slate-900 transition-colors">Fiyatlandırma</a>
+          <Link href="/" className="flex items-center">
+            <Image src="/logo.png" alt="Phogo" width={130} height={42} className="h-9 w-auto object-contain" priority />
+          </Link>
+          <div className="hidden md:flex items-center gap-8">
+            <a href="#nasil-calisir" className="text-base font-bold text-slate-700 hover:text-[#4B4FAE] transition-colors">Nasıl Çalışır?</a>
+            <a href="#avantajlar" className="text-base font-bold text-slate-700 hover:text-[#4B4FAE] transition-colors">Avantajlar</a>
+            <a href="#iletisim" className="text-base font-bold text-slate-700 hover:text-[#4B4FAE] transition-colors">İletişim</a>
           </div>
           <div className="flex items-center gap-3">
-            <Link href="/admin/login" className="text-sm text-slate-600 hover:text-slate-900 transition-colors hidden sm:block">
-              Giriş Yap
+            <Link href="/admin/login" className="text-sm text-slate-500 hover:text-slate-900 transition-colors hidden sm:block font-medium">
+              Giriş
             </Link>
-            <a href="mailto:hello@phogo.app" className="text-sm bg-[#4B4FAE] hover:bg-[#3a3e8f] text-white px-4 py-2 rounded-lg transition-colors font-medium">
+            <a href="#iletisim" className="text-sm bg-[#4B4FAE] hover:bg-[#3a3e8f] text-white px-5 py-2.5 rounded-xl transition-colors font-bold shadow-sm">
               Demo Al
             </a>
           </div>
@@ -34,73 +31,82 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero */}
-      <section className="pt-32 pb-20 px-6 overflow-hidden relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-indigo-50/60 to-white pointer-events-none" />
-        <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-indigo-100/40 rounded-full blur-3xl pointer-events-none" />
+      <section className="pt-32 pb-16 px-6 overflow-hidden relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-50/80 to-white pointer-events-none" />
+        <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-[#4B4FAE]/8 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-indigo-50 border border-indigo-100 text-[#4B4FAE] text-sm px-4 py-2 rounded-full mb-8 font-medium">
-            <Zap size={14} />
-            Yapay Zeka ile Güçlendirilmiş
-          </div>
-
           <h1 className="text-5xl md:text-7xl font-bold text-slate-900 mb-6 leading-tight tracking-tight">
-            Etkinlik fotoğrafını<br />
-            <span className="text-[#4B4FAE]">3 saniyede</span> bul
+            Phogo ile her anın<br />
+            <span className="text-[#4B4FAE]">fotoğrafı sende</span>
           </h1>
 
           <p className="text-xl text-slate-500 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Katılımcılar QR kodu okutup selfie çekiyor, Phogo tüm etkinlik fotoğrafları arasından onların bulunduğu her kareyi anında buluyor.
+            Etkinlikte çekilen binlerce fotoğraf arasından sadece seninkiler anında ekrana gelir.
+            QR okut, selfie çek — Phogo gerisini halleder.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
-              href="mailto:hello@phogo.app"
-              className="flex items-center gap-2 bg-[#4B4FAE] hover:bg-[#3a3e8f] text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg shadow-indigo-200 hover:shadow-xl hover:shadow-indigo-200 active:scale-95"
+              href="#iletisim"
+              className="flex items-center gap-2 bg-[#4B4FAE] hover:bg-[#3a3e8f] text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg shadow-[#4B4FAE]/25 hover:shadow-xl active:scale-95"
             >
               Ücretsiz Demo Talep Et
               <ArrowRight size={20} />
             </a>
-            <a href="#nasil-calisir" className="flex items-center gap-2 text-slate-600 hover:text-slate-900 px-6 py-4 rounded-xl font-medium transition-colors">
-              Nasıl çalışır? →
+            <a href="#nasil-calisir" className="flex items-center gap-2 text-slate-500 hover:text-slate-900 px-6 py-4 rounded-xl font-semibold transition-colors">
+              Nasıl çalışır?
+              <ChevronDown size={18} />
             </a>
           </div>
-
-          <p className="text-slate-400 text-sm mt-6">Kurulum gerektirmez · 5 dakikada aktif</p>
+          <p className="text-slate-400 text-sm mt-5">Kurulum gerektirmez · 5 dakikada aktif · Uygulama indirme yok</p>
         </div>
 
-        {/* Hero visual */}
-        <div className="relative max-w-5xl mx-auto mt-16">
-          <div className="bg-gradient-to-br from-slate-900 to-indigo-950 rounded-3xl p-8 shadow-2xl">
-            <div className="grid grid-cols-3 gap-4">
-              {[1,2,3,4,5,6].map((i) => (
-                <div key={i} className={`aspect-square rounded-2xl ${i === 2 || i === 5 ? 'bg-indigo-500/40 ring-4 ring-indigo-400 ring-offset-2 ring-offset-slate-900' : 'bg-white/10'} flex items-center justify-center`}>
-                  {(i === 2 || i === 5) && (
-                    <div className="text-center">
-                      <div className="w-10 h-10 bg-indigo-500 rounded-full flex items-center justify-center mx-auto mb-2">
+        {/* Photo grid */}
+        <div className="relative max-w-5xl mx-auto mt-14">
+          <div className="bg-gradient-to-br from-slate-900 to-[#1e2060] rounded-3xl p-6 shadow-2xl">
+            <div className="grid grid-cols-3 gap-3">
+              {[
+                { src: "/images/event1.jpg", match: false },
+                { src: "/images/event2.jpg", match: true },
+                { src: "/images/event3.jpg", match: false },
+                { src: "/images/event4.jpg", match: false },
+                { src: "/images/event5.jpg", match: true },
+                { src: "/images/event6.jpg", match: false },
+              ].map((item, i) => (
+                <div key={i} className={`relative aspect-video rounded-2xl overflow-hidden ${item.match ? "ring-4 ring-[#4B4FAE] ring-offset-2 ring-offset-slate-900" : ""}`}>
+                  <Image
+                    src={item.src}
+                    alt={`Etkinlik fotoğrafı ${i + 1}`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 33vw, 300px"
+                  />
+                  {item.match && (
+                    <div className="absolute inset-0 bg-[#4B4FAE]/30 flex items-center justify-center">
+                      <div className="bg-[#4B4FAE] rounded-full p-2 shadow-lg">
                         <Check size={20} className="text-white" />
                       </div>
-                      <div className="text-white text-xs font-medium">Eşleşti!</div>
                     </div>
                   )}
                 </div>
               ))}
             </div>
-            <div className="mt-6 flex items-center justify-between">
-              <div className="text-white/60 text-sm">1.240 fotoğraf tarandı</div>
-              <div className="bg-indigo-500 text-white text-sm px-4 py-2 rounded-lg font-medium">2 fotoğraf bulundu ✓</div>
+            <div className="mt-4 flex items-center justify-between">
+              <div className="text-white/50 text-sm">1.240 fotoğraf tarandı</div>
+              <div className="bg-[#4B4FAE] text-white text-sm px-4 py-2 rounded-lg font-bold">2 fotoğraf bulundu ✓</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Logos / Social proof */}
-      <section className="py-12 px-6 border-y border-slate-100 bg-slate-50">
+      {/* Event types */}
+      <section className="py-10 px-6 border-y border-slate-100 bg-slate-50/50">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-slate-400 text-sm mb-6 uppercase tracking-widest font-medium">Hangi etkinlikler için?</p>
-          <div className="flex flex-wrap justify-center gap-8 text-slate-500 font-medium">
-            {["Düğünler", "Kurumsal Etkinlikler", "Mezuniyet Törenleri", "Festivaller", "Konserler", "Spor Organizasyonları"].map((item) => (
-              <span key={item} className="text-base">{item}</span>
+          <p className="text-slate-400 text-xs mb-5 uppercase tracking-widest font-semibold">Hangi etkinlikler için idealdir?</p>
+          <div className="flex flex-wrap justify-center gap-6 text-slate-600 font-semibold text-sm">
+            {["Kurumsal Toplantılar", "Düğün & Nişan", "Mezuniyet Törenleri", "Konferanslar", "Festivaller", "Spor Etkinlikleri"].map((item) => (
+              <span key={item} className="flex items-center gap-1.5"><Star size={12} className="text-[#4B4FAE]" />{item}</span>
             ))}
           </div>
         </div>
@@ -110,8 +116,8 @@ export default function LandingPage() {
       <section id="nasil-calisir" className="py-24 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">3 adımda çalışır</h2>
-            <p className="text-slate-500 text-lg">Katılımcılarınız için kurulum yok, uygulama yok, kayıt yok.</p>
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">Phogo nasıl çalışır?</h2>
+            <p className="text-slate-500 text-lg max-w-xl mx-auto">Katılımcılarınız için sıfır kurulum, sıfır uygulama, sıfır kayıt. Sadece kamera ve bir dokunuş.</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -120,32 +126,32 @@ export default function LandingPage() {
                 step: "01",
                 icon: Camera,
                 title: "Fotoğrafları Yükle",
-                desc: "Etkinlik fotoğraflarınızı admin paneline yükleyin. 5.000 fotoğrafa kadar destek.",
-                color: "bg-indigo-50 text-[#4B4FAE]",
+                desc: "Etkinlik fotoğraflarını Phogo yönetim panelinize yükleyin. Yapay zeka her yüzü sessizce indeksler.",
+                color: "bg-[#4B4FAE]/10 text-[#4B4FAE]",
               },
               {
                 step: "02",
                 icon: QrCode,
-                title: "QR'ı Paylaş",
-                desc: "Oluşturulan QR kodu etkinlik alanına asın veya dijital ortamda paylaşın.",
+                title: "QR Kodu Paylaş",
+                desc: "Phogo'nun oluşturduğu QR kodu etkinlik alanına asın. Katılımcılar sadece kameralarını uzatsın.",
                 color: "bg-purple-50 text-purple-600",
               },
               {
                 step: "03",
                 icon: Download,
                 title: "Anında İndir",
-                desc: "Katılımcılar selfie çeker, Phogo fotoğraflarını bulur. Tek tıkla indirir.",
+                desc: "Selfie çeken katılımcı, Phogo sayesinde etkinlikteki tüm fotoğraflarına saniyeler içinde ulaşır.",
                 color: "bg-green-50 text-green-600",
               },
             ].map(({ step, icon: Icon, title, desc, color }) => (
               <div key={step} className="relative">
                 <div className="text-8xl font-bold text-slate-100 absolute -top-4 -left-2 select-none">{step}</div>
-                <div className="relative bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                <div className="relative bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-[#4B4FAE]/20 transition-all">
                   <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${color}`}>
                     <Icon size={22} />
                   </div>
                   <h3 className="font-bold text-slate-900 text-lg mb-2">{title}</h3>
-                  <p className="text-slate-500 leading-relaxed">{desc}</p>
+                  <p className="text-slate-500 leading-relaxed text-sm">{desc}</p>
                 </div>
               </div>
             ))}
@@ -153,131 +159,253 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Features */}
-      <section id="ozellikler" className="py-24 px-6 bg-slate-900">
+      {/* Advantages */}
+      <section id="avantajlar" className="py-24 px-6 bg-slate-900">
         <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-5">
+            <span className="text-[#4B4FAE] text-sm font-bold uppercase tracking-widest">Neden Phogo?</span>
+          </div>
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-4">Her ölçeğe hazır</h2>
-            <p className="text-slate-400 text-lg">50 kişilik bir toplantıdan 10.000 kişilik festivale kadar.</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+              Fotoğrafçınız binlerce kare çekti.<br />
+              <span className="text-[#7b80d4]">Peki katılımcılar onlara nasıl ulaşacak?</span>
+            </h2>
+            <p className="text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed">
+              Phogo bu soruyu sonsuza kadar çözüyor. USB paylaşımı yok, WhatsApp grubu kaosuna son,
+              "fotoğrafları kim gönderecek?" sorusuna gerek yok. Herkes kendi fotoğrafına, anında ulaşır.
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
-              { icon: Zap, title: "Anında Sonuç", desc: "AWS'nin yüz tanıma motoru milisaniyeler içinde eşleştirir.", color: "text-yellow-400" },
-              { icon: Shield, title: "Gizlilik Öncelikli", desc: "Yüz verisi asla saklanmaz. Sadece anlık arama yapılır.", color: "text-green-400" },
-              { icon: Users, title: "Toplu Yükleme", desc: "5.000 fotoğrafa kadar tek seferde yükleyin.", color: "text-blue-400" },
-              { icon: Download, title: "Kolay İndirme", desc: "Katılımcılar tüm fotoğraflarını tek tıkla indirir.", color: "text-purple-400" },
-              { icon: QrCode, title: "QR Sistemi", desc: "Her etkinliğe özel QR kod. Uygulama gerekmez.", color: "text-indigo-400" },
-              { icon: Star, title: "Çoklu Etkinlik", desc: "Aynı anda birden fazla etkinliği yönetin.", color: "text-orange-400" },
+              {
+                icon: Zap,
+                title: "3 Saniyede Sonuç",
+                desc: "Phogo, AWS'nin milyonlarca görüntü işlediği aynı yüz tanıma motorunu kullanır. Binlerce fotoğraf arasından sizinkiler milisaniyeler içinde gelir.",
+                color: "text-yellow-400",
+              },
+              {
+                icon: Shield,
+                title: "Gizliliğiniz Güvende",
+                desc: "Phogo yüz verinizi asla saklamaz. Her arama anlık işlenir ve sonra silinir. GDPR uyumlu, şeffaf, güvenli.",
+                color: "text-green-400",
+              },
+              {
+                icon: Users,
+                title: "Sınırsız Katılımcı",
+                desc: "100 kişilik toplantıdan 10.000 kişilik festivale. Phogo aynı kalitede, aynı hızda çalışır. Ölçek fark etmez.",
+                color: "text-blue-400",
+              },
+              {
+                icon: Clock,
+                title: "5 Dakikada Hazır",
+                desc: "Teknik bilgi gerekmez. Phogo paneline giriş yapın, fotoğrafları yükleyin, QR'ı paylaşın. Hepsi bu.",
+                color: "text-purple-400",
+              },
+              {
+                icon: Heart,
+                title: "Katılımcı Deneyimi",
+                desc: "Uygulama indirme yok, kayıt yok, şifre yok. Sadece QR ve selfie. Katılımcılar sizi sever.",
+                color: "text-red-400",
+              },
+              {
+                icon: Download,
+                title: "Kolay & Hızlı İndirme",
+                desc: "Tek fotoğraf veya tümü bir arada. Phogo güvenli indirme linkleri oluşturur, 24 saat geçerlidir.",
+                color: "text-orange-400",
+              },
             ].map(({ icon: Icon, title, desc, color }) => (
-              <div key={title} className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/8 transition-colors">
-                <Icon size={24} className={`${color} mb-4`} />
-                <h3 className="font-semibold text-white text-lg mb-2">{title}</h3>
+              <div key={title} className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/8 hover:border-[#4B4FAE]/40 transition-all group">
+                <Icon size={26} className={`${color} mb-4`} />
+                <h3 className="font-bold text-white text-lg mb-3">{title}</h3>
                 <p className="text-slate-400 text-sm leading-relaxed">{desc}</p>
               </div>
             ))}
           </div>
+
+          {/* Strong quote */}
+          <div className="mt-16 text-center">
+            <blockquote className="text-2xl md:text-3xl font-bold text-white/90 leading-relaxed max-w-3xl mx-auto">
+              "Etkinliğin bitmesi, anıların bitmesi anlamına gelmiyor.
+              <span className="text-[#7b80d4]"> Phogo ile her kare, herkese ulaşır."</span>
+            </blockquote>
+          </div>
         </div>
       </section>
 
-      {/* Pricing */}
-      <section id="fiyatlandirma" className="py-24 px-6">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">Basit fiyatlandırma</h2>
-            <p className="text-slate-500 text-lg">Gizli ücret yok. Etkinlik başına öde.</p>
-          </div>
+      {/* Contact Form */}
+      <section id="iletisim" className="py-24 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-16 items-start">
+            {/* Left */}
+            <div>
+              <span className="text-[#4B4FAE] text-sm font-bold uppercase tracking-widest">İletişim</span>
+              <h2 className="text-4xl font-bold text-slate-900 mt-3 mb-5 leading-tight">
+                Phogo'yu etkinliğinizde<br />deneyin
+              </h2>
+              <p className="text-slate-500 leading-relaxed mb-8">
+                Ücretsiz demo için bize ulaşın. Ekibimiz en geç 24 saat içinde size dönüş yapar ve
+                ilk etkinliğinizi birlikte hazırlarız.
+              </p>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                name: "Başlangıç",
-                price: "₺999",
-                period: "/ etkinlik",
-                desc: "Küçük etkinlikler için",
-                features: ["500 fotoğrafa kadar", "Sınırsız katılımcı", "QR kod sistemi", "24 saat indirme linki", "E-posta destek"],
-                cta: "Hemen Başla",
-                highlight: false,
-              },
-              {
-                name: "Profesyonel",
-                price: "₺2.499",
-                period: "/ etkinlik",
-                desc: "Düğün & kurumsal için",
-                features: ["2.000 fotoğrafa kadar", "Sınırsız katılımcı", "QR kod sistemi", "7 gün indirme linki", "Öncelikli destek", "Özel marka kaldırma"],
-                cta: "Demo Al",
-                highlight: true,
-              },
-              {
-                name: "Kurumsal",
-                price: "Özel",
-                period: "fiyatlandırma",
-                desc: "Festival & büyük organizasyonlar",
-                features: ["5.000+ fotoğraf", "Sınırsız etkinlik", "API erişimi", "SLA garantisi", "Özel entegrasyon", "Dedike destek"],
-                cta: "İletişime Geç",
-                highlight: false,
-              },
-            ].map(({ name, price, period, desc, features, cta, highlight }) => (
-              <div key={name} className={`rounded-2xl p-6 border-2 transition-all ${highlight ? 'border-[#4B4FAE] bg-[#4B4FAE] shadow-xl shadow-indigo-200' : 'border-slate-200 bg-white hover:border-indigo-200'}`}>
-                {highlight && <div className="text-indigo-200 text-xs font-bold uppercase tracking-widest mb-4">En Popüler</div>}
-                <div className={`text-sm font-medium mb-1 ${highlight ? 'text-indigo-200' : 'text-slate-500'}`}>{name}</div>
-                <div className={`text-4xl font-bold mb-1 ${highlight ? 'text-white' : 'text-slate-900'}`}>{price}</div>
-                <div className={`text-sm mb-2 ${highlight ? 'text-indigo-200' : 'text-slate-400'}`}>{period}</div>
-                <div className={`text-sm mb-6 ${highlight ? 'text-indigo-100' : 'text-slate-500'}`}>{desc}</div>
-                <ul className="space-y-3 mb-8">
-                  {features.map((f) => (
-                    <li key={f} className={`flex items-center gap-2 text-sm ${highlight ? 'text-indigo-100' : 'text-slate-600'}`}>
-                      <Check size={15} className={highlight ? 'text-indigo-300' : 'text-indigo-500'} />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href="mailto:hello@phogo.app"
-                  className={`block text-center py-3 rounded-xl font-semibold transition-all ${highlight ? 'bg-white text-[#4B4FAE] hover:bg-indigo-50' : 'bg-[#4B4FAE] text-white hover:bg-[#3a3e8f]'}`}
-                >
-                  {cta}
-                </a>
+              <div className="space-y-4">
+                {[
+                  { icon: Check, text: "İlk etkinliğe özel ücretsiz demo" },
+                  { icon: Check, text: "5 dakikada kurulum, teknik destek dahil" },
+                  { icon: Check, text: "Taahhüt yok, istediğiniz zaman iptal" },
+                ].map(({ icon: Icon, text }) => (
+                  <div key={text} className="flex items-center gap-3">
+                    <div className="w-6 h-6 bg-[#4B4FAE]/10 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Icon size={13} className="text-[#4B4FAE]" />
+                    </div>
+                    <span className="text-slate-700 font-medium text-sm">{text}</span>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* CTA */}
-      <section className="py-24 px-6 bg-gradient-to-br from-[#4B4FAE] to-[#3a3e8f]">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Bir sonraki etkinliğinizde deneyin
-          </h2>
-          <p className="text-indigo-200 text-xl mb-10">
-            5 dakikada kurulum. Katılımcılarınız fotoğraflarını anında bulur.
-          </p>
-          <a
-            href="mailto:hello@phogo.app"
-            className="inline-flex items-center gap-3 bg-white text-[#4B4FAE] px-8 py-4 rounded-xl font-bold text-lg hover:bg-indigo-50 transition-all shadow-xl hover:shadow-2xl active:scale-95"
-          >
-            <Camera size={22} />
-            Ücretsiz Demo Talep Et
-          </a>
-          <p className="text-indigo-300 text-sm mt-4">hello@phogo.app · En geç 24 saat içinde dönüş</p>
+              <div className="mt-10 pt-8 border-t border-slate-100">
+                <p className="text-slate-500 text-sm">Doğrudan yazabilirsiniz:</p>
+                <a href="mailto:hello@phogo.app" className="text-[#4B4FAE] font-bold text-lg hover:underline">hello@phogo.app</a>
+              </div>
+            </div>
+
+            {/* Form */}
+            <ContactForm />
+          </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-6 bg-slate-900">
+      <footer className="py-10 px-6 bg-slate-900 border-t border-slate-800">
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center">
+          <Link href="/" className="flex items-center">
             <Image src="/logo.png" alt="Phogo" width={100} height={32} className="h-7 w-auto object-contain brightness-0 invert" />
-          </div>
+          </Link>
           <div className="text-slate-500 text-sm">© 2026 Phogo. Tüm hakları saklıdır.</div>
           <div className="flex gap-6 text-slate-500 text-sm">
-            <a href="mailto:hello@phogo.app" className="hover:text-white transition-colors">İletişim</a>
-            <Link href="/admin/login" className="hover:text-white transition-colors">Admin</Link>
+            <a href="mailto:hello@phogo.app" className="hover:text-white transition-colors">hello@phogo.app</a>
+            <Link href="/admin/login" className="hover:text-white transition-colors">Admin Girişi</Link>
           </div>
         </div>
       </footer>
 
     </div>
+  );
+}
+
+function ContactForm() {
+  const [form, setForm] = useState({ name: "", email: "", phone: "", company: "", message: "" });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  function update(field: string, value: string) {
+    setForm((f) => ({ ...f, [field]: value }));
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setStatus("loading");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      setStatus(res.ok ? "success" : "error");
+    } catch {
+      setStatus("error");
+    }
+  }
+
+  if (status === "success") {
+    return (
+      <div className="bg-green-50 border border-green-100 rounded-2xl p-10 text-center">
+        <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+          <Check size={28} className="text-green-600" />
+        </div>
+        <h3 className="text-xl font-bold text-slate-900 mb-2">Mesajınız alındı!</h3>
+        <p className="text-slate-500 text-sm">En geç 24 saat içinde size dönüş yapacağız.</p>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="bg-white border border-slate-200 rounded-2xl p-8 shadow-sm space-y-4">
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <label className="block text-sm font-semibold text-slate-700 mb-1.5">Ad Soyad *</label>
+          <input
+            type="text"
+            value={form.name}
+            onChange={(e) => update("name", e.target.value)}
+            required
+            placeholder="Ahmet Yılmaz"
+            className="w-full px-4 py-3 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#4B4FAE]/30 focus:border-[#4B4FAE] transition-all text-sm"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-semibold text-slate-700 mb-1.5">E-posta *</label>
+          <input
+            type="email"
+            value={form.email}
+            onChange={(e) => update("email", e.target.value)}
+            required
+            placeholder="ahmet@firma.com"
+            className="w-full px-4 py-3 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#4B4FAE]/30 focus:border-[#4B4FAE] transition-all text-sm"
+          />
+        </div>
+      </div>
+
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <label className="block text-sm font-semibold text-slate-700 mb-1.5">Telefon</label>
+          <input
+            type="tel"
+            value={form.phone}
+            onChange={(e) => update("phone", e.target.value)}
+            placeholder="+90 555 000 00 00"
+            className="w-full px-4 py-3 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#4B4FAE]/30 focus:border-[#4B4FAE] transition-all text-sm"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-semibold text-slate-700 mb-1.5">Şirket / Organizasyon</label>
+          <input
+            type="text"
+            value={form.company}
+            onChange={(e) => update("company", e.target.value)}
+            placeholder="Firma Adı"
+            className="w-full px-4 py-3 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#4B4FAE]/30 focus:border-[#4B4FAE] transition-all text-sm"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label className="block text-sm font-semibold text-slate-700 mb-1.5">Mesajınız *</label>
+        <textarea
+          value={form.message}
+          onChange={(e) => update("message", e.target.value)}
+          required
+          rows={4}
+          placeholder="Etkinliğiniz hakkında kısaca bilgi verin..."
+          className="w-full px-4 py-3 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#4B4FAE]/30 focus:border-[#4B4FAE] transition-all text-sm resize-none"
+        />
+      </div>
+
+      {status === "error" && (
+        <p className="text-red-500 text-sm">Bir hata oluştu, lütfen tekrar deneyin.</p>
+      )}
+
+      <button
+        type="submit"
+        disabled={status === "loading"}
+        className="w-full py-3.5 bg-[#4B4FAE] hover:bg-[#3a3e8f] disabled:opacity-60 text-white font-bold rounded-xl transition-all flex items-center justify-center gap-2 shadow-sm"
+      >
+        {status === "loading" ? (
+          <><Loader2 size={18} className="animate-spin" /> Gönderiliyor...</>
+        ) : (
+          <>Demo Talep Et <ArrowRight size={18} /></>
+        )}
+      </button>
+      <p className="text-slate-400 text-xs text-center">En geç 24 saat içinde dönüş yapılır.</p>
+    </form>
   );
 }
