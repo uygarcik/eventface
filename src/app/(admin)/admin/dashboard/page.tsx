@@ -41,7 +41,7 @@ export default function DashboardPage() {
         </div>
         <button
           onClick={() => setShowModal(true)}
-          className="flex items-center gap-2 px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-xl transition-colors shadow-sm"
+          className="flex items-center gap-2 px-4 py-2.5 bg-[#4B4FAE] hover:bg-[#3a3e8f] text-white font-medium rounded-xl transition-colors shadow-sm"
         >
           <Plus size={18} />
           Yeni Etkinlik
@@ -53,7 +53,7 @@ export default function DashboardPage() {
         <div className="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-10 h-10 bg-indigo-50 rounded-xl flex items-center justify-center">
-              <Calendar size={20} className="text-indigo-600" />
+              <Calendar size={20} className="text-[#4B4FAE]" />
             </div>
             <span className="text-slate-500 text-sm">Toplam Etkinlik</span>
           </div>
@@ -82,7 +82,7 @@ export default function DashboardPage() {
       {/* Event list */}
       {loading ? (
         <div className="flex items-center justify-center py-20">
-          <Loader2 size={32} className="animate-spin text-indigo-600" />
+          <Loader2 size={32} className="animate-spin text-[#4B4FAE]" />
         </div>
       ) : events.length === 0 ? (
         <div className="bg-white rounded-2xl border border-dashed border-slate-200 p-16 text-center">
@@ -95,7 +95,7 @@ export default function DashboardPage() {
           </p>
           <button
             onClick={() => setShowModal(true)}
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-xl transition-colors"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#4B4FAE] hover:bg-[#3a3e8f] text-white font-medium rounded-xl transition-colors"
           >
             <Plus size={18} />
             İlk Etkinliği Oluştur
@@ -110,7 +110,7 @@ export default function DashboardPage() {
               className="flex items-center gap-4 bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:shadow-md hover:border-indigo-100 transition-all group"
             >
               <div className="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-indigo-100 transition-colors">
-                <Calendar size={22} className="text-indigo-600" />
+                <Calendar size={22} className="text-[#4B4FAE]" />
               </div>
               <div className="flex-1 min-w-0">
                 <h3 className="font-semibold text-slate-900 truncate">{event.name}</h3>

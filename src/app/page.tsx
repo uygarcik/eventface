@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Camera, Zap, Shield, Download, QrCode, Users, Star, ArrowRight, Check } from "lucide-react";
 
 export const metadata = {
@@ -13,11 +14,8 @@ export default function LandingPage() {
       {/* Nav */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
-              <Camera size={16} className="text-white" />
-            </div>
-            <span className="font-bold text-xl text-slate-900">phogo</span>
+          <div className="flex items-center">
+            <Image src="/logo.png" alt="Phogo" width={120} height={40} className="h-8 w-auto object-contain" priority />
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm text-slate-600">
             <a href="#nasil-calisir" className="hover:text-slate-900 transition-colors">Nasıl Çalışır?</a>
@@ -28,7 +26,7 @@ export default function LandingPage() {
             <Link href="/admin/login" className="text-sm text-slate-600 hover:text-slate-900 transition-colors hidden sm:block">
               Giriş Yap
             </Link>
-            <a href="mailto:hello@phogo.app" className="text-sm bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition-colors font-medium">
+            <a href="mailto:hello@phogo.app" className="text-sm bg-[#4B4FAE] hover:bg-[#3a3e8f] text-white px-4 py-2 rounded-lg transition-colors font-medium">
               Demo Al
             </a>
           </div>
@@ -41,14 +39,14 @@ export default function LandingPage() {
         <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-indigo-100/40 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-indigo-50 border border-indigo-100 text-indigo-700 text-sm px-4 py-2 rounded-full mb-8 font-medium">
+          <div className="inline-flex items-center gap-2 bg-indigo-50 border border-indigo-100 text-[#4B4FAE] text-sm px-4 py-2 rounded-full mb-8 font-medium">
             <Zap size={14} />
             Yapay Zeka ile Güçlendirilmiş
           </div>
 
           <h1 className="text-5xl md:text-7xl font-bold text-slate-900 mb-6 leading-tight tracking-tight">
             Etkinlik fotoğrafını<br />
-            <span className="text-indigo-600">3 saniyede</span> bul
+            <span className="text-[#4B4FAE]">3 saniyede</span> bul
           </h1>
 
           <p className="text-xl text-slate-500 mb-10 max-w-2xl mx-auto leading-relaxed">
@@ -58,7 +56,7 @@ export default function LandingPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
               href="mailto:hello@phogo.app"
-              className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg shadow-indigo-200 hover:shadow-xl hover:shadow-indigo-200 active:scale-95"
+              className="flex items-center gap-2 bg-[#4B4FAE] hover:bg-[#3a3e8f] text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg shadow-indigo-200 hover:shadow-xl hover:shadow-indigo-200 active:scale-95"
             >
               Ücretsiz Demo Talep Et
               <ArrowRight size={20} />
@@ -123,7 +121,7 @@ export default function LandingPage() {
                 icon: Camera,
                 title: "Fotoğrafları Yükle",
                 desc: "Etkinlik fotoğraflarınızı admin paneline yükleyin. 5.000 fotoğrafa kadar destek.",
-                color: "bg-indigo-50 text-indigo-600",
+                color: "bg-indigo-50 text-[#4B4FAE]",
               },
               {
                 step: "02",
@@ -220,7 +218,7 @@ export default function LandingPage() {
                 highlight: false,
               },
             ].map(({ name, price, period, desc, features, cta, highlight }) => (
-              <div key={name} className={`rounded-2xl p-6 border-2 transition-all ${highlight ? 'border-indigo-600 bg-indigo-600 shadow-xl shadow-indigo-200' : 'border-slate-200 bg-white hover:border-indigo-200'}`}>
+              <div key={name} className={`rounded-2xl p-6 border-2 transition-all ${highlight ? 'border-[#4B4FAE] bg-[#4B4FAE] shadow-xl shadow-indigo-200' : 'border-slate-200 bg-white hover:border-indigo-200'}`}>
                 {highlight && <div className="text-indigo-200 text-xs font-bold uppercase tracking-widest mb-4">En Popüler</div>}
                 <div className={`text-sm font-medium mb-1 ${highlight ? 'text-indigo-200' : 'text-slate-500'}`}>{name}</div>
                 <div className={`text-4xl font-bold mb-1 ${highlight ? 'text-white' : 'text-slate-900'}`}>{price}</div>
@@ -236,7 +234,7 @@ export default function LandingPage() {
                 </ul>
                 <a
                   href="mailto:hello@phogo.app"
-                  className={`block text-center py-3 rounded-xl font-semibold transition-all ${highlight ? 'bg-white text-indigo-600 hover:bg-indigo-50' : 'bg-indigo-600 text-white hover:bg-indigo-700'}`}
+                  className={`block text-center py-3 rounded-xl font-semibold transition-all ${highlight ? 'bg-white text-[#4B4FAE] hover:bg-indigo-50' : 'bg-[#4B4FAE] text-white hover:bg-[#3a3e8f]'}`}
                 >
                   {cta}
                 </a>
@@ -247,7 +245,7 @@ export default function LandingPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 px-6 bg-gradient-to-br from-indigo-600 to-purple-700">
+      <section className="py-24 px-6 bg-gradient-to-br from-[#4B4FAE] to-[#3a3e8f]">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Bir sonraki etkinliğinizde deneyin
@@ -257,7 +255,7 @@ export default function LandingPage() {
           </p>
           <a
             href="mailto:hello@phogo.app"
-            className="inline-flex items-center gap-3 bg-white text-indigo-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-indigo-50 transition-all shadow-xl hover:shadow-2xl active:scale-95"
+            className="inline-flex items-center gap-3 bg-white text-[#4B4FAE] px-8 py-4 rounded-xl font-bold text-lg hover:bg-indigo-50 transition-all shadow-xl hover:shadow-2xl active:scale-95"
           >
             <Camera size={22} />
             Ücretsiz Demo Talep Et
@@ -269,11 +267,8 @@ export default function LandingPage() {
       {/* Footer */}
       <footer className="py-12 px-6 bg-slate-900">
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <div className="w-7 h-7 bg-indigo-600 rounded-lg flex items-center justify-center">
-              <Camera size={14} className="text-white" />
-            </div>
-            <span className="font-bold text-white">phogo</span>
+          <div className="flex items-center">
+            <Image src="/logo.png" alt="Phogo" width={100} height={32} className="h-7 w-auto object-contain brightness-0 invert" />
           </div>
           <div className="text-slate-500 text-sm">© 2026 Phogo. Tüm hakları saklıdır.</div>
           <div className="flex gap-6 text-slate-500 text-sm">

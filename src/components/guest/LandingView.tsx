@@ -16,14 +16,14 @@ export default function LandingView({ event, onStart }: Props) {
     <div className="min-h-screen bg-gradient-to-b from-slate-900 via-indigo-950 to-slate-900 flex flex-col">
       {/* Background blobs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-indigo-600/10 rounded-full blur-3xl" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#4B4FAE]/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-purple-600/10 rounded-full blur-3xl" />
       </div>
 
       <div className="relative flex flex-col flex-1 items-center justify-center px-6 py-12 text-center">
         {/* Logo */}
         <div className="mb-8">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-indigo-600 rounded-3xl shadow-2xl shadow-indigo-500/30 mb-4">
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-[#4B4FAE] rounded-3xl shadow-2xl shadow-[#4B4FAE]/30 mb-4">
             <Camera size={36} className="text-white" />
           </div>
           <div className="inline-flex items-center gap-1.5 bg-white/10 text-white/80 text-xs px-3 py-1 rounded-full">
@@ -66,7 +66,7 @@ export default function LandingView({ event, onStart }: Props) {
               { step: "3", text: "Fotoğraflarını Bul" },
             ].map(({ step, text }) => (
               <div key={step} className="bg-white/5 border border-white/10 rounded-xl p-3 text-center">
-                <div className="w-7 h-7 bg-indigo-600 rounded-lg flex items-center justify-center text-white text-xs font-bold mx-auto mb-2">
+                <div className="w-7 h-7 bg-[#4B4FAE] rounded-lg flex items-center justify-center text-white text-xs font-bold mx-auto mb-2">
                   {step}
                 </div>
                 <div className="text-white text-xs font-medium leading-tight">{text}</div>
@@ -78,7 +78,7 @@ export default function LandingView({ event, onStart }: Props) {
         {/* CTA */}
         <button
           onClick={onStart}
-          className="w-full max-w-sm flex items-center justify-center gap-3 py-4 bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 text-white text-lg font-bold rounded-2xl transition-all shadow-2xl shadow-indigo-500/30 active:scale-[0.98]"
+          className="w-full max-w-sm flex items-center justify-center gap-3 py-4 bg-[#4B4FAE] hover:bg-[#5a5ec0] active:bg-[#3a3e8f] text-white text-lg font-bold rounded-2xl transition-all shadow-2xl shadow-[#4B4FAE]/30 active:scale-[0.98]"
         >
           <Camera size={22} />
           Fotoğraflarımı Bul

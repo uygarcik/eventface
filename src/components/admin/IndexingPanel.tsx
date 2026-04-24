@@ -121,7 +121,7 @@ export default function IndexingPanel({ eventId, photoCount }: Props) {
           <button
             onClick={startIndexing}
             disabled={running || photoCount === 0}
-            className="flex-1 flex items-center justify-center gap-2 py-3 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-medium rounded-xl transition-colors"
+            className="flex-1 flex items-center justify-center gap-2 py-3 bg-[#4B4FAE] hover:bg-[#3a3e8f] disabled:opacity-50 disabled:cursor-not-allowed text-white font-medium rounded-xl transition-colors"
           >
             {running ? (
               <><Loader2 size={18} className="animate-spin" /> İndeksleniyor...</>

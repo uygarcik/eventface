@@ -42,13 +42,13 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 flex items-center justify-center p-4">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-[#4B4FAE]/20 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl" />
       </div>
 
       <div className="relative w-full max-w-md">
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-indigo-600 rounded-2xl mb-4 shadow-lg shadow-indigo-500/30">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-[#4B4FAE] rounded-2xl mb-4 shadow-lg shadow-[#4B4FAE]/30">
             <Camera size={28} className="text-white" />
           </div>
           <h1 className="text-3xl font-bold text-white">Phogo</h1>
@@ -68,7 +68,7 @@ export default function LoginPage() {
                 onKeyDown={(e) => e.key === "Enter" && doLogin()}
                 autoComplete="email"
                 placeholder="admin@phogo.com"
-                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#4B4FAE] focus:border-transparent transition-all"
               />
             </div>
 
@@ -84,7 +84,7 @@ export default function LoginPage() {
                   onKeyDown={(e) => e.key === "Enter" && doLogin()}
                   autoComplete="current-password"
                   placeholder="••••••••"
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all pr-12"
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#4B4FAE] focus:border-transparent transition-all pr-12"
                 />
                 <button
                   type="button"
@@ -106,7 +106,7 @@ export default function LoginPage() {
               type="button"
               onClick={doLogin}
               disabled={loading}
-              className="w-full py-3 bg-indigo-600 hover:bg-indigo-500 disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-indigo-500/20"
+              className="w-full py-3 bg-[#4B4FAE] hover:bg-[#5a5ec0] disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#4B4FAE]/20"
             >
               {loading ? (
                 <>

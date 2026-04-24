@@ -37,7 +37,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       >
         {/* Logo */}
         <div className="flex items-center gap-3 px-6 py-6 border-b border-slate-700">
-          <div className="w-9 h-9 bg-indigo-600 rounded-xl flex items-center justify-center">
+          <div className="w-9 h-9 bg-[#4B4FAE] rounded-xl flex items-center justify-center">
             <Camera size={18} className="text-white" />
           </div>
           <div>
@@ -55,7 +55,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               onClick={() => setSidebarOpen(false)}
               className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                 pathname.startsWith(href)
-                  ? "bg-indigo-600 text-white"
+                  ? "bg-[#4B4FAE] text-white"
                   : "text-slate-400 hover:text-white hover:bg-slate-800"
               }`}
             >
@@ -68,7 +68,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         {/* Footer */}
         <div className="px-3 py-4 border-t border-slate-700">
           <div className="flex items-center gap-3 px-3 py-2 mb-2">
-            <div className="w-8 h-8 bg-indigo-600 rounded-full flex items-center justify-center text-white text-xs font-bold">
+            <div className="w-8 h-8 bg-[#4B4FAE] rounded-full flex items-center justify-center text-white text-xs font-bold">
               {email.charAt(0).toUpperCase()}
             </div>
             <div className="flex-1 min-w-0">
@@ -104,7 +104,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             <Menu size={22} />
           </button>
           <div className="flex items-center gap-2">
-            <Camera size={18} className="text-indigo-600" />
+            <Camera size={18} className="text-[#4B4FAE]" />
             <span className="font-bold text-slate-800">Phogo</span>
           </div>
         </header>

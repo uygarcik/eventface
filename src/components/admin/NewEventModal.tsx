@@ -60,7 +60,7 @@ export default function NewEventModal({ onClose, onCreated }: Props) {
                 onChange={(e) => setName(e.target.value)}
                 required
                 placeholder="örn. Yılbaşı Partisi 2026"
-                className="w-full pl-9 pr-4 py-3 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                className="w-full pl-9 pr-4 py-3 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#4B4FAE] focus:border-transparent transition-all"
               />
             </div>
           </div>
@@ -76,7 +76,7 @@ export default function NewEventModal({ onClose, onCreated }: Props) {
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
                 required
-                className="w-full pl-9 pr-4 py-3 border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                className="w-full pl-9 pr-4 py-3 border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#4B4FAE] focus:border-transparent transition-all"
               />
             </div>
           </div>
@@ -92,7 +92,7 @@ export default function NewEventModal({ onClose, onCreated }: Props) {
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
                 placeholder="örn. İstanbul Convention Center"
-                className="w-full pl-9 pr-4 py-3 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                className="w-full pl-9 pr-4 py-3 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#4B4FAE] focus:border-transparent transition-all"
               />
             </div>
           </div>
@@ -114,7 +114,7 @@ export default function NewEventModal({ onClose, onCreated }: Props) {
             <button
               type="submit"
               disabled={loading}
-              className="flex-1 py-3 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-60 text-white font-medium rounded-xl transition-colors flex items-center justify-center gap-2"
+              className="flex-1 py-3 bg-[#4B4FAE] hover:bg-[#3a3e8f] disabled:opacity-60 text-white font-medium rounded-xl transition-colors flex items-center justify-center gap-2"
             >
               {loading ? <Loader2 size={16} className="animate-spin" /> : null}
               Oluştur

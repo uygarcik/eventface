@@ -3,6 +3,9 @@
 :root {
   --background: #ffffff;
   --foreground: #0f172a;
+  --phogo: #4B4FAE;
+  --phogo-dark: #3a3e8f;
+  --phogo-light: #6366c4;
 }
 
 @theme inline {
@@ -10,6 +13,9 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-phogo: var(--phogo);
+  --color-phogo-dark: var(--phogo-dark);
+  --color-phogo-light: var(--phogo-light);
 }
 
 body {
@@ -19,13 +25,4 @@ body {
 
 * {
   box-sizing: border-box;
-}
-
-@keyframes spin-slow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.animate-spin-slow {
-  animation: spin-slow 3s linear infinite;
 }
