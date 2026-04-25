@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
+import CookieBanner from "@/components/CookieBanner";
 import { Zap, Shield, Download, QrCode, Users, Clock, ArrowRight, Check, Camera, Star, Heart, ChevronDown, Loader2 } from "lucide-react";
 
 export default function LandingPage() {
@@ -203,10 +204,16 @@ export default function LandingPage() {
           <div className="text-slate-500 text-sm">© 2026 Phogo. {t("footer.rights")}</div>
           <div className="flex gap-6 text-slate-500 text-sm">
             <a href="mailto:info@phogo.app" className="hover:text-white transition-colors">info@phogo.app</a>
-            <Link href="/admin/login" className="hover:text-white transition-colors">{t("footer.adminLogin")}</Link>
+            <Link href={`/${locale}/gizlilik`} className="hover:text-white transition-colors">
+              {locale === "en" ? "Privacy" : "Gizlilik"}
+            </Link>
+            <Link href={`/${locale}/cerezler`} className="hover:text-white transition-colors">
+              {locale === "en" ? "Cookies" : "Çerezler"}
+            </Link>
           </div>
         </div>
       </footer>
+      <CookieBanner locale={locale} />
     </div>
   );
 }
