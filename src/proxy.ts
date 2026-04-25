@@ -16,8 +16,13 @@ const PUBLIC_PATHS = [
 export async function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
-  // Allow public paths
-  if (PUBLIC_PATHS.some((p) => pathname.startsWith(p)) || pathname === "/") {
+  // Allow public paths and locale routes
+  if (
+    PUBLIC_PATHS.some((p) => pathname.startsWith(p)) ||
+    pathname === "/" ||
+    pathname === "/tr" || pathname.startsWith("/tr/") ||
+    pathname === "/en" || pathname.startsWith("/en/")
+  ) {
     return NextResponse.next();
   }
 

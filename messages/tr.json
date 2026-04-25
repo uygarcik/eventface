@@ -1,0 +1,116 @@
+{
+  "nav": {
+    "howItWorks": "Nasıl Çalışır?",
+    "advantages": "Avantajlar",
+    "contact": "İletişim",
+    "login": "Giriş",
+    "demo": "Demo Al"
+  },
+  "hero": {
+    "title": "Phogo ile her anın",
+    "titleHighlight": "fotoğrafı sende",
+    "description": "Etkinlikte çekilen binlerce fotoğraf arasından sadece seninkiler anında ekrana gelir. QR okut, selfie çek — Phogo gerisini halleder.",
+    "cta": "Ücretsiz Demo Talep Et",
+    "howItWorks": "Nasıl çalışır?",
+    "subtext": "Kurulum gerektirmez · 5 dakikada aktif · Uygulama indirme yok",
+    "scanned": "fotoğraf tarandı",
+    "found": "fotoğraf bulundu ✓"
+  },
+  "eventTypes": {
+    "label": "Hangi etkinlikler için idealdir?",
+    "items": ["Kurumsal Toplantılar", "Düğün & Nişan", "Mezuniyet Törenleri", "Konferanslar", "Festivaller", "Spor Etkinlikleri"]
+  },
+  "howItWorks": {
+    "title": "Phogo nasıl çalışır?",
+    "subtitle": "Katılımcılarınız için sıfır kurulum, sıfır uygulama, sıfır kayıt. Sadece kamera ve bir dokunuş.",
+    "steps": [
+      {
+        "title": "Fotoğrafları Yükle",
+        "desc": "Etkinlik fotoğraflarını Phogo yönetim panelinize yükleyin. Yapay zeka her yüzü sessizce indeksler."
+      },
+      {
+        "title": "QR Kodu Paylaş",
+        "desc": "Phogo'nun oluşturduğu QR kodu etkinlik alanına asın. Katılımcılar sadece kameralarını uzatsın."
+      },
+      {
+        "title": "Anında İndir",
+        "desc": "Selfie çeken katılımcı, Phogo sayesinde etkinlikteki tüm fotoğraflarına saniyeler içinde ulaşır."
+      }
+    ]
+  },
+  "advantages": {
+    "badge": "Neden Phogo?",
+    "title": "Fotoğrafçınız binlerce kare çekti.",
+    "titleHighlight": "Peki katılımcılar onlara nasıl ulaşacak?",
+    "description": "Phogo bu soruyu sonsuza kadar çözüyor. USB paylaşımı yok, WhatsApp grubu kaosuna son, \"fotoğrafları kim gönderecek?\" sorusuna gerek yok. Herkes kendi fotoğrafına, anında ulaşır.",
+    "quote": "\"Etkinliğin bitmesi, anıların bitmesi anlamına gelmiyor.",
+    "quoteHighlight": " Phogo ile her kare, herkese ulaşır.\"",
+    "items": [
+      { "title": "3 Saniyede Sonuç", "desc": "Phogo, AWS'nin milyonlarca görüntü işlediği aynı yüz tanıma motorunu kullanır. Binlerce fotoğraf arasından sizinkiler milisaniyeler içinde gelir." },
+      { "title": "Gizliliğiniz Güvende", "desc": "Phogo yüz verinizi asla saklamaz. Her arama anlık işlenir ve sonra silinir. GDPR uyumlu, şeffaf, güvenli." },
+      { "title": "Sınırsız Katılımcı", "desc": "100 kişilik toplantıdan 10.000 kişilik festivale. Phogo aynı kalitede, aynı hızda çalışır. Ölçek fark etmez." },
+      { "title": "5 Dakikada Hazır", "desc": "Teknik bilgi gerekmez. Phogo paneline giriş yapın, fotoğrafları yükleyin, QR'ı paylaşın. Hepsi bu." },
+      { "title": "Katılımcı Deneyimi", "desc": "Uygulama indirme yok, kayıt yok, şifre yok. Sadece QR ve selfie. Katılımcılar sizi sever." },
+      { "title": "Kolay & Hızlı İndirme", "desc": "Tek fotoğraf veya tümü bir arada. Phogo güvenli indirme linkleri oluşturur, 24 saat geçerlidir." }
+    ]
+  },
+  "contact": {
+    "badge": "İletişim",
+    "title": "Phogo'yu etkinliğinizde deneyin",
+    "description": "Ücretsiz demo için bize ulaşın. Ekibimiz en geç 24 saat içinde size dönüş yapar ve ilk etkinliğinizi birlikte hazırlarız.",
+    "features": [
+      "İlk etkinliğe özel ücretsiz demo",
+      "5 dakikada kurulum, teknik destek dahil",
+      "Taahhüt yok, istediğiniz zaman iptal"
+    ],
+    "directContact": "Doğrudan yazabilirsiniz:",
+    "form": {
+      "name": "Ad Soyad",
+      "namePlaceholder": "Ahmet Yılmaz",
+      "email": "E-posta",
+      "emailPlaceholder": "ahmet@firma.com",
+      "phone": "Telefon",
+      "phonePlaceholder": "+90 555 000 00 00",
+      "company": "Şirket / Organizasyon",
+      "companyPlaceholder": "Firma Adı",
+      "message": "Mesajınız",
+      "messagePlaceholder": "Etkinliğiniz hakkında kısaca bilgi verin...",
+      "submit": "Demo Talep Et",
+      "submitting": "Gönderiliyor...",
+      "successTitle": "Mesajınız alındı!",
+      "successDesc": "En geç 24 saat içinde size dönüş yapacağız.",
+      "error": "Bir hata oluştu, lütfen tekrar deneyin.",
+      "responseTime": "En geç 24 saat içinde dönüş yapılır.",
+      "required": "*"
+    }
+  },
+  "footer": {
+    "rights": "Tüm hakları saklıdır.",
+    "adminLogin": "Admin Girişi"
+  },
+  "guest": {
+    "scanCount": "fotoğraf yüklendi",
+    "findPhotos": "Fotoğraflarımı Bul",
+    "privacy": "Yüz veriniz kaydedilmez • Güvenli & Özel",
+    "howStep1": "Kamerayı Aç",
+    "howStep2": "Yüzünü Tara",
+    "howStep3": "Fotoğraflarını Bul",
+    "aiPowered": "Yüz Tanıma Teknolojisi",
+    "searching": "Fotoğraflarınız Aranıyor",
+    "searchSteps": ["Yüzünüz analiz ediliyor...", "Fotoğraflar taranıyor...", "Eşleşmeler bulunuyor...", "Fotoğraflarınız hazırlanıyor..."],
+    "found": "Fotoğraf Bulundu",
+    "notFound": "Fotoğraf Bulunamadı",
+    "notFoundDesc": "Bu etkinlikte size ait fotoğraf tespit edilemedi. Farklı bir açıyla tekrar deneyin.",
+    "retry": "Tekrar Dene",
+    "refresh": "Yenile",
+    "selectAll": "Tümünü Seç",
+    "deselectAll": "Seçimi Kaldır",
+    "download": "İndir",
+    "downloadAll": "Tümünü İndir",
+    "downloading": "İndiriliyor",
+    "invalidLink": "Bu etkinlik linki geçersiz veya süresi dolmuş",
+    "faceGuide": "Yüzünüzü oval içine yerleştirin",
+    "cameraStarting": "Kamera başlatılıyor...",
+    "cameraError": "Kamera erişimi reddedildi. Lütfen tarayıcı ayarlarından kamera iznini verin."
+  }
+}

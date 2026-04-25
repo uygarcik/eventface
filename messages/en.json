@@ -1,0 +1,116 @@
+{
+  "nav": {
+    "howItWorks": "How It Works",
+    "advantages": "Why Phogo",
+    "contact": "Contact",
+    "login": "Login",
+    "demo": "Get Demo"
+  },
+  "hero": {
+    "title": "Every moment captured.",
+    "titleHighlight": "Instantly yours.",
+    "description": "Thousands of event photos, but only yours appear on your screen. Scan the QR, take a selfie — Phogo does the rest.",
+    "cta": "Request Free Demo",
+    "howItWorks": "How it works?",
+    "subtext": "No setup required · Live in 5 minutes · No app download",
+    "scanned": "photos scanned",
+    "found": "photos found ✓"
+  },
+  "eventTypes": {
+    "label": "Perfect for every event type",
+    "items": ["Corporate Events", "Weddings & Engagements", "Graduation Ceremonies", "Conferences", "Festivals", "Sports Events"]
+  },
+  "howItWorks": {
+    "title": "How does Phogo work?",
+    "subtitle": "Zero setup, zero app, zero registration for your attendees. Just a camera and one tap.",
+    "steps": [
+      {
+        "title": "Upload Photos",
+        "desc": "Upload your event photos to the Phogo dashboard. AI silently indexes every face in the background."
+      },
+      {
+        "title": "Share the QR Code",
+        "desc": "Display the Phogo-generated QR code at your event. Attendees just point their camera at it."
+      },
+      {
+        "title": "Instant Download",
+        "desc": "Attendees take a selfie and Phogo finds every photo they appear in — within seconds."
+      }
+    ]
+  },
+  "advantages": {
+    "badge": "Why Phogo?",
+    "title": "Your photographer captured thousands of shots.",
+    "titleHighlight": "But how do attendees access them?",
+    "description": "Phogo solves this forever. No USB sharing, no WhatsApp chaos, no \"who will send the photos?\" question. Everyone gets their photos, instantly.",
+    "quote": "\"The event ending doesn't mean the memories end.",
+    "quoteHighlight": " With Phogo, every photo reaches everyone.\"",
+    "items": [
+      { "title": "Results in 3 Seconds", "desc": "Phogo uses the same face recognition engine that powers AWS at millions of images. Your photos appear in milliseconds." },
+      { "title": "Privacy First", "desc": "Phogo never stores your facial data. Every search is processed instantly and discarded. GDPR compliant, transparent, secure." },
+      { "title": "Unlimited Attendees", "desc": "From a 100-person meeting to a 10,000-person festival. Phogo delivers the same quality and speed regardless of scale." },
+      { "title": "Ready in 5 Minutes", "desc": "No technical knowledge needed. Log in to Phogo, upload photos, share the QR. That's it." },
+      { "title": "Attendee Experience", "desc": "No app download, no registration, no password. Just QR and selfie. Your attendees will love you for it." },
+      { "title": "Easy & Fast Download", "desc": "Single photo or all at once. Phogo generates secure download links valid for 24 hours." }
+    ]
+  },
+  "contact": {
+    "badge": "Contact",
+    "title": "Try Phogo at your next event",
+    "description": "Contact us for a free demo. Our team will get back to you within 24 hours and set up your first event together.",
+    "features": [
+      "Free demo for your first event",
+      "5-minute setup with technical support included",
+      "No commitment, cancel anytime"
+    ],
+    "directContact": "Or reach us directly:",
+    "form": {
+      "name": "Full Name",
+      "namePlaceholder": "John Smith",
+      "email": "Email",
+      "emailPlaceholder": "john@company.com",
+      "phone": "Phone",
+      "phonePlaceholder": "+1 555 000 0000",
+      "company": "Company / Organization",
+      "companyPlaceholder": "Company Name",
+      "message": "Message",
+      "messagePlaceholder": "Tell us about your event...",
+      "submit": "Request Demo",
+      "submitting": "Sending...",
+      "successTitle": "Message received!",
+      "successDesc": "We'll get back to you within 24 hours.",
+      "error": "Something went wrong, please try again.",
+      "responseTime": "We respond within 24 hours.",
+      "required": "*"
+    }
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "adminLogin": "Admin Login"
+  },
+  "guest": {
+    "scanCount": "photos uploaded",
+    "findPhotos": "Find My Photos",
+    "privacy": "Your face data is never stored • Secure & Private",
+    "howStep1": "Open Camera",
+    "howStep2": "Scan Your Face",
+    "howStep3": "Find Your Photos",
+    "aiPowered": "Face Recognition Technology",
+    "searching": "Searching Your Photos",
+    "searchSteps": ["Analyzing your face...", "Scanning photos...", "Finding matches...", "Preparing your photos..."],
+    "found": "Photos Found",
+    "notFound": "No Photos Found",
+    "notFoundDesc": "We couldn't find any photos of you in this event. Try again from a different angle.",
+    "retry": "Try Again",
+    "refresh": "Refresh",
+    "selectAll": "Select All",
+    "deselectAll": "Deselect All",
+    "download": "Download",
+    "downloadAll": "Download All",
+    "downloading": "Downloading",
+    "invalidLink": "This event link is invalid or has expired",
+    "faceGuide": "Position your face inside the oval",
+    "cameraStarting": "Starting camera...",
+    "cameraError": "Camera access denied. Please allow camera access in your browser settings."
+  }
+}
