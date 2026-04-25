@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
-import { Camera, Eye, EyeOff, Loader2 } from "lucide-react";
+import Image from "next/image";
+import { Eye, EyeOff, Loader2 } from "lucide-react";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -48,11 +49,10 @@ export default function LoginPage() {
 
       <div className="relative w-full max-w-md">
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-[#4B4FAE] rounded-2xl mb-4 shadow-lg shadow-[#4B4FAE]/30">
-            <Camera size={28} className="text-white" />
+          <div className="mb-6">
+            <Image src="/logo.png" alt="Phogo" width={160} height={52} className="h-12 w-auto object-contain brightness-0 invert mx-auto" priority />
           </div>
-          <h1 className="text-3xl font-bold text-white">Phogo</h1>
-          <p className="text-slate-400 mt-1 text-sm">Yönetim Paneline Giriş</p>
+          <p className="text-slate-400 text-sm">Yönetim Paneline Giriş</p>
         </div>
 
         <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 shadow-2xl">

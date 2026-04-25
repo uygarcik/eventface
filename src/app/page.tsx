@@ -265,7 +265,7 @@ export default function LandingPage() {
 
               <div className="mt-10 pt-8 border-t border-slate-100">
                 <p className="text-slate-500 text-sm">Doğrudan yazabilirsiniz:</p>
-                <a href="mailto:hello@phogo.app" className="text-[#4B4FAE] font-bold text-lg hover:underline">hello@phogo.app</a>
+                <a href="mailto:info@phogo.app" className="text-[#4B4FAE] font-bold text-lg hover:underline">info@phogo.app</a>
               </div>
             </div>
 
@@ -283,7 +283,7 @@ export default function LandingPage() {
           </Link>
           <div className="text-slate-500 text-sm">© 2026 Phogo. Tüm hakları saklıdır.</div>
           <div className="flex gap-6 text-slate-500 text-sm">
-            <a href="mailto:hello@phogo.app" className="hover:text-white transition-colors">hello@phogo.app</a>
+            <a href="mailto:info@phogo.app" className="hover:text-white transition-colors">info@phogo.app</a>
             <Link href="/admin/login" className="hover:text-white transition-colors">Admin Girişi</Link>
           </div>
         </div>
