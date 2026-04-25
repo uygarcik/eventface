@@ -5,9 +5,10 @@ export type Locale = (typeof locales)[number];
 export const defaultLocale: Locale = "tr";
 
 export default getRequestConfig(async ({ requestLocale }) => {
-  const locale = (await requestLocale) ?? defaultLocale;
+  const locale = ((await requestLocale) as Locale) ?? defaultLocale;
+  const validLocale = locales.includes(locale) ? locale : defaultLocale;
   return {
-    locale,
-    messages: (await import(`../messages/${locale}.json`)).default,
+    locale: validLocale,
+    messages: (await import(`../messages/${validLocale}.json`)).default,
   };
 });
