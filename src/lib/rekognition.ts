@@ -38,8 +38,8 @@ export async function indexFaces(eventId: string, s3Key: string, photoId: string
       CollectionId: collectionId(eventId),
       Image: { S3Object: { Bucket: process.env.S3_BUCKET_NAME!, Name: s3Key } },
       ExternalImageId: photoId,
-      MaxFaces: 20,
-      QualityFilter: "AUTO",
+      MaxFaces: 100,        // grup fotoğrafları için yeterli
+      QualityFilter: "NONE", // küçük/uzak yüzleri de indeksle
       DetectionAttributes: [],
     })
   );
@@ -56,7 +56,7 @@ export async function searchFacesByImage(eventId: string, imageBytes: Uint8Array
       CollectionId: collectionId(eventId),
       Image: { Bytes: imageBytes },
       MaxFaces: 10,
-      FaceMatchThreshold: 80,
+      FaceMatchThreshold: 70, // grup/uzak yüzler için daha toleranslı
     })
   );
 
