@@ -1,22 +1,17 @@
 "use client";
 import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
-import {
-  Plus, Calendar, Image as ImageIcon, MapPin,
-  QrCode, ChevronRight, Loader2, Camera, TrendingUp
-} from "lucide-react";
+import { Plus, Calendar, Image as ImageIcon, MapPin, QrCode, ChevronRight, Loader2, Camera, TrendingUp } from "lucide-react";
 import NewEventModal from "@/components/admin/NewEventModal";
+import { useAdminT } from "@/contexts/AdminLangContext";
 
 interface Event {
-  id: string;
-  name: string;
-  date: string;
-  location: string | null;
-  qrToken: string;
-  _count: { photos: number };
+  id: string; name: string; date: string; location: string | null;
+  qrToken: string; _count: { photos: number };
 }
 
 export default function DashboardPage() {
+  const { t } = useAdminT();
   const [events, setEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
@@ -33,29 +28,24 @@ export default function DashboardPage() {
 
   return (
     <div className="p-6 lg:p-8 max-w-6xl mx-auto">
-      {/* Header */}
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900">Etkinlikler</h1>
-          <p className="text-slate-500 text-sm mt-1">Tüm etkinliklerinizi buradan yönetin</p>
+          <h1 className="text-2xl font-bold text-slate-900">{t.dashboard.title}</h1>
+          <p className="text-slate-500 text-sm mt-1">{t.dashboard.subtitle}</p>
         </div>
-        <button
-          onClick={() => setShowModal(true)}
-          className="flex items-center gap-2 px-4 py-2.5 bg-[#4B4FAE] hover:bg-[#3a3e8f] text-white font-medium rounded-xl transition-colors shadow-sm"
-        >
-          <Plus size={18} />
-          Yeni Etkinlik
+        <button onClick={() => setShowModal(true)}
+          className="flex items-center gap-2 px-4 py-2.5 bg-[#4B4FAE] hover:bg-[#3a3e8f] text-white font-medium rounded-xl transition-colors shadow-sm">
+          <Plus size={18} />{t.dashboard.newEvent}
         </button>
       </div>
 
-      {/* Stats */}
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
         <div className="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-10 h-10 bg-indigo-50 rounded-xl flex items-center justify-center">
               <Calendar size={20} className="text-[#4B4FAE]" />
             </div>
-            <span className="text-slate-500 text-sm">Toplam Etkinlik</span>
+            <span className="text-slate-500 text-sm">{t.dashboard.totalEvents}</span>
           </div>
           <div className="text-3xl font-bold text-slate-900">{events.length}</div>
         </div>
@@ -64,7 +54,7 @@ export default function DashboardPage() {
             <div className="w-10 h-10 bg-purple-50 rounded-xl flex items-center justify-center">
               <ImageIcon size={20} className="text-purple-600" />
             </div>
-            <span className="text-slate-500 text-sm">Toplam Fotoğraf</span>
+            <span className="text-slate-500 text-sm">{t.dashboard.totalPhotos}</span>
           </div>
           <div className="text-3xl font-bold text-slate-900">{totalPhotos.toLocaleString()}</div>
         </div>
@@ -73,13 +63,12 @@ export default function DashboardPage() {
             <div className="w-10 h-10 bg-green-50 rounded-xl flex items-center justify-center">
               <TrendingUp size={20} className="text-green-600" />
             </div>
-            <span className="text-slate-500 text-sm">Aktif Sistem</span>
+            <span className="text-slate-500 text-sm">{t.dashboard.activeSystem}</span>
           </div>
-          <div className="text-3xl font-bold text-green-600">Çalışıyor</div>
+          <div className="text-3xl font-bold text-green-600">{t.dashboard.working}</div>
         </div>
       </div>
 
-      {/* Event list */}
       {loading ? (
         <div className="flex items-center justify-center py-20">
           <Loader2 size={32} className="animate-spin text-[#4B4FAE]" />
@@ -89,26 +78,18 @@ export default function DashboardPage() {
           <div className="w-16 h-16 bg-indigo-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
             <Camera size={28} className="text-indigo-400" />
           </div>
-          <h3 className="text-slate-700 font-semibold text-lg mb-2">Henüz etkinlik yok</h3>
-          <p className="text-slate-400 text-sm mb-6">
-            İlk etkinliğinizi oluşturun ve fotoğraf yüklemeye başlayın
-          </p>
-          <button
-            onClick={() => setShowModal(true)}
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#4B4FAE] hover:bg-[#3a3e8f] text-white font-medium rounded-xl transition-colors"
-          >
-            <Plus size={18} />
-            İlk Etkinliği Oluştur
+          <h3 className="text-slate-700 font-semibold text-lg mb-2">{t.dashboard.noEvents}</h3>
+          <p className="text-slate-400 text-sm mb-6">{t.dashboard.noEventsDesc}</p>
+          <button onClick={() => setShowModal(true)}
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#4B4FAE] hover:bg-[#3a3e8f] text-white font-medium rounded-xl transition-colors">
+            <Plus size={18} />{t.dashboard.createFirst}
           </button>
         </div>
       ) : (
         <div className="space-y-3">
           {events.map((event) => (
-            <Link
-              key={event.id}
-              href={`/admin/events/${event.id}`}
-              className="flex items-center gap-4 bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:shadow-md hover:border-indigo-100 transition-all group"
-            >
+            <Link key={event.id} href={`/admin/events/${event.id}`}
+              className="flex items-center gap-4 bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:shadow-md hover:border-indigo-100 transition-all group">
               <div className="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-indigo-100 transition-colors">
                 <Calendar size={22} className="text-[#4B4FAE]" />
               </div>
@@ -117,30 +98,24 @@ export default function DashboardPage() {
                 <div className="flex items-center gap-4 mt-1">
                   <span className="text-slate-500 text-sm flex items-center gap-1">
                     <Calendar size={13} />
-                    {new Date(event.date).toLocaleDateString("tr-TR", {
-                      day: "numeric", month: "long", year: "numeric"
-                    })}
+                    {new Date(event.date).toLocaleDateString(undefined, { day: "numeric", month: "long", year: "numeric" })}
                   </span>
                   {event.location && (
-                    <span className="text-slate-500 text-sm flex items-center gap-1">
-                      <MapPin size={13} />
-                      {event.location}
-                    </span>
+                    <span className="text-slate-500 text-sm flex items-center gap-1"><MapPin size={13} />{event.location}</span>
                   )}
                 </div>
               </div>
               <div className="flex items-center gap-4 flex-shrink-0">
                 <div className="text-right hidden sm:block">
                   <div className="text-slate-900 font-semibold flex items-center gap-1.5">
-                    <ImageIcon size={15} className="text-slate-400" />
-                    {event._count.photos.toLocaleString()}
+                    <ImageIcon size={15} className="text-slate-400" />{event._count.photos.toLocaleString()}
                   </div>
-                  <div className="text-slate-400 text-xs">fotoğraf</div>
+                  <div className="text-slate-400 text-xs">{t.dashboard.photos}</div>
                 </div>
                 <div className="w-8 h-8 bg-slate-50 rounded-lg flex items-center justify-center">
                   <QrCode size={15} className="text-slate-400" />
                 </div>
-                <ChevronRight size={18} className="text-slate-300 group-hover:text-indigo-500 transition-colors" />
+                <ChevronRight size={18} className="text-slate-300 group-hover:text-[#4B4FAE] transition-colors" />
               </div>
             </Link>
           ))}
@@ -148,10 +123,7 @@ export default function DashboardPage() {
       )}
 
       {showModal && (
-        <NewEventModal
-          onClose={() => setShowModal(false)}
-          onCreated={() => { setShowModal(false); fetchEvents(); }}
-        />
+        <NewEventModal onClose={() => setShowModal(false)} onCreated={() => { setShowModal(false); fetchEvents(); }} />
       )}
     </div>
   );

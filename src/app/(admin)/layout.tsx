@@ -4,11 +4,13 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { LayoutDashboard, LogOut, Menu, Users } from "lucide-react";
+import { AdminLangProvider, useAdminT } from "@/contexts/AdminLangContext";
 
 interface Me { email: string; role: string; }
 
-export default function AdminLayout({ children }: { children: React.ReactNode }) {
+function AdminLayoutInner({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const { t, lang, toggleLang } = useAdminT();
   const [me, setMe] = useState<Me | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -29,24 +31,28 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const isSuperAdmin = me?.role === "SUPER_ADMIN";
 
   const navItems = [
-    { href: "/admin/dashboard", label: "Dashboard", icon: LayoutDashboard, show: true },
-    { href: "/admin/clients", label: "Müşteriler", icon: Users, show: isSuperAdmin },
+    { href: "/admin/dashboard", label: t.sidebar.dashboard, icon: LayoutDashboard, show: true },
+    { href: "/admin/clients", label: t.sidebar.clients, icon: Users, show: isSuperAdmin },
   ];
 
   return (
     <div className="flex h-screen bg-slate-50">
       <aside className={`fixed inset-y-0 left-0 z-50 w-64 bg-slate-900 flex flex-col transform transition-transform duration-300 lg:translate-x-0 lg:static lg:inset-auto ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}`}>
 
-        <div className="flex items-center px-5 py-5 border-b border-slate-700">
+        <div className="flex items-center justify-between px-5 py-5 border-b border-slate-700">
           <Link href="/" target="_blank">
             <Image src="/logo.png" alt="Phogo" width={120} height={38} className="h-8 w-auto object-contain brightness-0 invert" priority />
           </Link>
+          <button onClick={toggleLang}
+            className="text-xs font-bold text-slate-400 hover:text-white border border-slate-600 hover:border-slate-400 px-2 py-1 rounded-lg transition-colors">
+            {lang === "tr" ? "EN" : "TR"}
+          </button>
         </div>
 
         {me && (
           <div className="px-5 py-3 border-b border-slate-700/50">
             <span className={`inline-flex items-center text-xs font-bold px-2.5 py-1 rounded-full ${isSuperAdmin ? "bg-amber-500/20 text-amber-400" : "bg-[#4B4FAE]/20 text-[#7b80d4]"}`}>
-              {isSuperAdmin ? "Super Admin" : "Müşteri"}
+              {isSuperAdmin ? t.sidebar.superAdmin : t.sidebar.client}
             </span>
           </div>
         )}
@@ -54,12 +60,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         <nav className="flex-1 px-3 py-4 space-y-1">
           {navItems.filter(i => i.show).map(({ href, label, icon: Icon }) => (
             <Link key={href} href={href} onClick={() => setSidebarOpen(false)}
-              className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                pathname.startsWith(href) ? "bg-[#4B4FAE] text-white" : "text-slate-400 hover:text-white hover:bg-slate-800"
-              }`}
-            >
-              <Icon size={18} />
-              {label}
+              className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${pathname.startsWith(href) ? "bg-[#4B4FAE] text-white" : "text-slate-400 hover:text-white hover:bg-slate-800"}`}>
+              <Icon size={18} />{label}
             </Link>
           ))}
         </nav>
@@ -73,10 +75,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               <div className="text-slate-300 text-xs truncate">{me?.email}</div>
             </div>
           </div>
-          <button onClick={logout}
-            className="flex items-center gap-3 px-3 py-2.5 w-full rounded-lg text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800 transition-colors">
-            <LogOut size={18} />
-            Çıkış Yap
+          <button onClick={logout} className="flex items-center gap-3 px-3 py-2.5 w-full rounded-lg text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800 transition-colors">
+            <LogOut size={18} />{t.sidebar.logout}
           </button>
         </div>
       </aside>
@@ -93,5 +93,13 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         <main className="flex-1 overflow-y-auto">{children}</main>
       </div>
     </div>
+  );
+}
+
+export default function AdminLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <AdminLangProvider>
+      <AdminLayoutInner>{children}</AdminLayoutInner>
+    </AdminLangProvider>
   );
 }
