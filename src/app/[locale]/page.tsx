@@ -29,9 +29,6 @@ export default function LandingPage() {
               className="text-sm font-bold text-slate-500 hover:text-[#4B4FAE] border border-slate-200 hover:border-[#4B4FAE] px-3 py-1.5 rounded-lg transition-colors">
               {otherLocale === "en" ? "EN" : "TR"}
             </Link>
-            <Link href="/admin/login" className="text-sm text-slate-500 hover:text-slate-900 transition-colors hidden sm:block font-medium">
-              {t("nav.login")}
-            </Link>
             <a href="#iletisim" className="text-sm bg-[#4B4FAE] hover:bg-[#3a3e8f] text-white px-5 py-2.5 rounded-xl transition-colors font-bold shadow-sm">
               {t("nav.demo")}
             </a>
