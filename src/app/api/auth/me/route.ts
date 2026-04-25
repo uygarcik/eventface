@@ -7,7 +7,7 @@ export async function GET(req: NextRequest) {
     if (!token) return NextResponse.json({ error: "Yetkisiz" }, { status: 401 });
 
     const payload = verifyToken(token);
-    return NextResponse.json({ adminId: payload.adminId, email: payload.email });
+    return NextResponse.json({ adminId: payload.adminId, email: payload.email, role: payload.role });
   } catch {
     return NextResponse.json({ error: "Yetkisiz" }, { status: 401 });
   }

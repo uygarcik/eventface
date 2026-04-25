@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
     }
 
     const admin = await prisma.admin.findUnique({ where: { email } });
-    if (!admin) {
+    if (!admin || !admin.active) {
       return NextResponse.json({ error: "Geçersiz bilgiler" }, { status: 401 });
     }
 
@@ -20,9 +20,9 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Geçersiz bilgiler" }, { status: 401 });
     }
 
-    const token = signToken({ adminId: admin.id, email: admin.email });
+    const token = signToken({ adminId: admin.id, email: admin.email, role: admin.role });
 
-    const res = NextResponse.json({ success: true, email: admin.email });
+    const res = NextResponse.json({ success: true, email: admin.email, role: admin.role });
     res.cookies.set("admin_token", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
