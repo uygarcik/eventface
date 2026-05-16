@@ -110,6 +110,7 @@
     "downloading": "İndiriliyor",
     "invalidLink": "Bu etkinlik linki geçersiz veya süresi dolmuş",
     "faceGuide": "Yüzünüzü oval içine yerleştirin",
+    "captureHint": "Fotoğraf çekmek için butona basın",
     "cameraStarting": "Kamera başlatılıyor...",
     "cameraError": "Kamera erişimi reddedildi. Lütfen tarayıcı ayarlarından kamera iznini verin."
   }

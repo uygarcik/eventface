@@ -110,6 +110,7 @@
     "downloading": "Downloading",
     "invalidLink": "This event link is invalid or has expired",
     "faceGuide": "Position your face inside the oval",
+    "captureHint": "Press the button to take a photo",
     "cameraStarting": "Starting camera...",
     "cameraError": "Camera access denied. Please allow camera access in your browser settings."
   }

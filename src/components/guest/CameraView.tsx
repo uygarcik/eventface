@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { useTranslations } from "next-intl";
-import { X, RefreshCw, AlertCircle } from "lucide-react";
+import { X, AlertCircle } from "lucide-react";
 
 interface Props {
   onCapture: (blob: Blob) => void;
@@ -15,7 +15,6 @@ export default function CameraView({ onCapture, onBack }: Props) {
   const streamRef = useRef<MediaStream | null>(null);
   const [ready, setReady] = useState(false);
   const [error, setError] = useState("");
-  const [facingMode, setFacingMode] = useState<"user" | "environment">("user");
   const [capturing, setCapturing] = useState(false);
   const [countdown, setCountdown] = useState<number | null>(null);
 
@@ -25,7 +24,7 @@ export default function CameraView({ onCapture, onBack }: Props) {
     if (streamRef.current) streamRef.current.getTracks().forEach((t) => t.stop());
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
-        video: { facingMode, width: { ideal: 1280 }, height: { ideal: 720 } },
+        video: { facingMode: "user", width: { ideal: 1280 }, height: { ideal: 720 } },
         audio: false,
       });
       streamRef.current = stream;
@@ -36,7 +35,7 @@ export default function CameraView({ onCapture, onBack }: Props) {
     } catch {
       setError(t("cameraError"));
     }
-  }, [facingMode, t]);
+  }, [t]);
 
   useEffect(() => {
     startCamera();
@@ -61,7 +60,7 @@ export default function CameraView({ onCapture, onBack }: Props) {
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
     const ctx = canvas.getContext("2d")!;
-    if (facingMode === "user") { ctx.translate(canvas.width, 0); ctx.scale(-1, 1); }
+    ctx.translate(canvas.width, 0); ctx.scale(-1, 1);
     ctx.drawImage(video, 0, 0);
     canvas.toBlob((blob) => { setCapturing(false); if (blob) onCapture(blob); }, "image/jpeg", 0.92);
   }
@@ -70,7 +69,7 @@ export default function CameraView({ onCapture, onBack }: Props) {
     <div className="fixed inset-0 bg-black flex flex-col">
       <div className="relative flex-1 overflow-hidden">
         <video ref={videoRef} autoPlay playsInline muted
-          className={`w-full h-full object-cover ${facingMode === "user" ? "scale-x-[-1]" : ""}`} />
+          className="w-full h-full object-cover scale-x-[-1]" />
         <canvas ref={canvasRef} className="hidden" />
 
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -96,10 +95,6 @@ export default function CameraView({ onCapture, onBack }: Props) {
           <button onClick={onBack} className="w-10 h-10 bg-black/40 backdrop-blur-sm rounded-full flex items-center justify-center text-white">
             <X size={20} />
           </button>
-          <button onClick={() => setFacingMode((f) => f === "user" ? "environment" : "user")}
-            className="w-10 h-10 bg-black/40 backdrop-blur-sm rounded-full flex items-center justify-center text-white">
-            <RefreshCw size={18} />
-          </button>
         </div>
 
         <div className="absolute bottom-36 left-0 right-0 text-center px-4 pointer-events-none">
@@ -117,7 +112,10 @@ export default function CameraView({ onCapture, onBack }: Props) {
         </div>
       </div>
 
-      <div className="flex items-center justify-center py-8 bg-black">
+      <div className="flex flex-col items-center justify-center py-8 bg-black gap-4">
+        {ready && !capturing && (
+          <p className="text-white/60 text-sm">{t("captureHint")}</p>
+        )}
         <button onClick={capture} disabled={!ready || capturing} className="relative w-20 h-20 disabled:opacity-50">
           <div className="absolute inset-0 rounded-full border-4 border-white/80" />
           <div className={`absolute inset-2 rounded-full transition-all ${capturing ? "bg-white/50 scale-90" : "bg-white active:scale-90"}`} />

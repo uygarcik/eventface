@@ -7,8 +7,12 @@ const PUBLIC_PATHS = [
   "/api/contact",
   "/api/debug",
   "/api/face-search",
+  "/api/download",
+  "/api/thumbnail",
   "/api/events/public",
   "/e/",
+  "/dijitalteslim/",
+  "/api/digital-search",
   "/_next",
   "/favicon",
 ];
